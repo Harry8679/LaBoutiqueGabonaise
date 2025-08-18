@@ -14,7 +14,7 @@ final class RegisterController extends AbstractController
     {
         $form = $this->createForm(RegisterUserType::class);
 
-        return $this->render('register/index.html.twig', [
+        return $this->render('register/register.html.twig', [
             'registerForm' => $form->createView()
         ]);
     }
