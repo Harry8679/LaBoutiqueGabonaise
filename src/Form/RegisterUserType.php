@@ -22,7 +22,12 @@ class RegisterUserType extends AbstractType
                     'placeholder' => 'Indiquez votre prénom'
                 ]
             ])
-            ->add('lastName')
+            ->add('lastName', TextType::class, [
+                'label' => 'Votre nom',
+                'attr' => [
+                    'placeholder' => 'Indiquez votre nom'
+                ]
+            ])
             ->add('email', EmailType::class, [
                 'label' => 'Votre adresse email',
                 'attr' => [
