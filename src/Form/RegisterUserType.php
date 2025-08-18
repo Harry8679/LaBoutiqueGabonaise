@@ -41,7 +41,9 @@ class RegisterUserType extends AbstractType
                     'placeholder' => 'Indiquez votre mot de passe'
                 ]
             ])
-            ->add('submit', SubmitType::class)
+            ->add('submit', SubmitType::class, [
+                'label' => 'Valider'
+            ])
         ;
     }
 
