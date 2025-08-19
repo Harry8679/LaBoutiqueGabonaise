@@ -17,7 +17,7 @@ final class RegisterController extends AbstractController
     {
         $user = new User();
         
-        $form = $this->createForm(RegisterUserType::class);
+        $form = $this->createForm(RegisterUserType::class, $user);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
