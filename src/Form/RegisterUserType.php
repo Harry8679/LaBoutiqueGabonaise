@@ -30,6 +30,7 @@ class RegisterUserType extends AbstractType
                 ]
             ])
             ->add('email', EmailType::class, [
+                'required' => true,
                 'label' => 'Votre adresse email',
                 'attr' => [
                     'placeholder' => 'Indiquez votre adresse email'
