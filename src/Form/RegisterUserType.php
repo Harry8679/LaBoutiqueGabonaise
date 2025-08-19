@@ -6,6 +6,7 @@ use App\Entity\User;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
+use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -35,11 +36,21 @@ class RegisterUserType extends AbstractType
                 ]
             ])
             // ->add('roles')
-            ->add('password', PasswordType::class, [
-                'label' => 'Votre mot de passe',
-                'attr' => [
-                    'placeholder' => 'Indiquez votre mot de passe'
-                ]
+            ->add('plainPassword', RepeatedType::class, [
+                'type' => PasswordType::class,
+                'first_options' => [
+                    'label' => 'Votre mot de passe',
+                    'attr' => [
+                        'placeholder' => 'Veuillez renseigner votre mot de passe'
+                    ]
+                ],
+                'second_options' => [
+                    'label' => 'Confirmer votre mot de passe',
+                    'attr' => [
+                        'placeholder' => 'Veuillez confirmer votre mot de passe'
+                    ]   
+                    ],
+                    'mapped' => false
             ])
             ->add('submit', SubmitType::class, [
                 'label' => 'Valider'
