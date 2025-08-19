@@ -32,6 +32,12 @@ class RegisterUserType extends AbstractType
             ])
             ->add('lastName', TextType::class, [
                 'label' => 'Votre nom',
+                'constraints' => [
+                    new Length([
+                        'min' => 2,
+                        'max' => 30
+                    ])
+                ],
                 'attr' => [
                     'placeholder' => 'Indiquez votre nom'
                 ]
